@@ -997,7 +997,7 @@ class Range(Subconstruct):
         max = self.max(context) if callable(self.max) else self.max
         if not 0 <= min <= max <= sys.maxsize:
             raise RangeError("unsane min %s and max %s" % (min, max))
-        if not isinstance(obj, collections.Sequence):
+        if not isinstance(obj, collections.abc.Sequence):
             raise RangeError("expected sequence type, found %s" % type(obj))
         if not min <= len(obj) <= max:
             raise RangeError("expected from %d to %d elements, found %d" % (min, max, len(obj)))
